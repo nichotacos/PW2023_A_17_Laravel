@@ -84,13 +84,14 @@
                                 style="height: 286px;">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $item['name'] }}</h5>
-                                <p class="card-text" style="font-weight: bold;">Rp {{ number_format($item['price']) }}</p>
-                                <a href="#" class="btn rounded" style="background-color: #60B347; color: white;">Plis
-                                    beli</a>
+                                <p class="card-text" style="font-weight: bold;">Rp {{ number_format($item['price']) }}
+                                </p>
+                                <a href="{{ url('/details') }}" class="btn rounded"
+                                    style="background-color: #60B347; color: white;">Details</a>
                             </div>
                         </div>
                     </a>
-                    
+
                 </div>
 
                 @endforeach

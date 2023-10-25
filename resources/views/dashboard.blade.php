@@ -107,11 +107,13 @@
             margin-right: 10px;
         }
 
-        .dropdown:hover .dropdown-menu {
+        .dropdown:hover.a .dropdown-menu.a {
             display: block;
             margin-top: 185px;
             /* remove the gap so it doesn't close */
         }
+
+
 
         .items:hover {
             box-shadow: 0px 0px 20px #5EE137;
@@ -178,17 +180,17 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav flex-grow-1 justify-content-evenly">
                         <li class="nav-item" style="margin-right: 40px;"><a class="nav-link item" href="{{ url('/') }}"
-                                style="color: #5EE137; font-size: 22px;">
+                                style="color: #5FE137; font-size: 22px;">
                                 <img src="{{ asset('images/logo.png') }}" id="logo"> Kedai </a></li>
                         <li class="nav-item"><a class="nav-link item {{ ($title === 'Home') ? 'active' : '' }}"
                                 href="{{ url('/') }}">Home</a></li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown a">
                             <button
                                 class="nav-link {{ ($title === 'Smartphones' || $title === 'Laptops' || $title === 'TVs') ? 'active' : '' }} btn btn-white dropdown-toggle"
                                 aria-expanded="false">
                                 Product
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-light" style="border: none; min-width: 400px;">
+                            <ul class="dropdown-menu a dropdown-menu-light" style="border: none; min-width: 400px;">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <li><a class="dropdown-item" href="{{ url('/laptop') }}">Laptops</a></li>
@@ -212,12 +214,12 @@
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </button>
                             </a></li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown a">
                             <button type="button" class="btn btn-white btn btn-white dropdown-toggle"
                                 aria-expanded="false">
                                 <i class="fa-solid fa-cart-plus"></i>
                             </button>
-                            <ul class="dropdown-menu dropdown-menu-light"
+                            <ul class="dropdown-menu a dropdown-menu-light"
                                 style="border: none; min-width: 200px; margin-top: 140px;">
                                 <li><a class="dropdown-item" href="{{ url('/cart') }}">Cart</a></li>
                                 <li><a class="dropdown-item" href="{{ url('/wishlist') }}">Wishlist</a></li>
@@ -428,7 +430,7 @@
             myInput.focus()
         })
     </script>
-    <script>
+    <!-- <script>
         $(document).ready(function () {
             $('#loginForm').formValidation({
                 framework: 'bootstrap',
@@ -456,7 +458,7 @@
                 }
             });
         });
-    </script>
+    </script> -->
     <script>
         function toProfile() {
             window.location.href = "{{ url('/profile') }}"

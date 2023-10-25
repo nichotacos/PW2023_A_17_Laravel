@@ -79,15 +79,17 @@
                             </div>
                         </div>
                         <div class="container col-md-9 d-flex justify-content-center mb-2">
-                            <button class="btn py-2 "
-                                style="font-weight: bold; font-size: 18px; background-color: #5FE137; width: 100%;">+
+                            <button class="btn py-2"
+                                style="font-weight: bold; font-size: 18px; background-color: #5FE137; width: 100%;"
+                                id="cartBtn">+
                                 Add
                                 to
                                 Cart</button>
                         </div>
+
                         <div class="container col-md-9 d-flex justify-content-center mt-2">
                             <button class="btn btn-danger py-2 "
-                                style="font-weight: bold; font-size: 18px; width: 100%;"><i
+                                style="font-weight: bold; font-size: 18px; width: 100%;" id="wishBtn"><i
                                     class="fa-solid fa-heart me-2" style="font-size: 16px;"></i>Add
                                 to
                                 Wishlist</button>
@@ -220,6 +222,35 @@
     </div>
 </div>
 
+<!-- Cart Toast -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="cartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto text-success">Success</strong>
+            <small>Now</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Success adding item to cart.
+        </div>
+    </div>
+</div>
+
+<!-- Wish Toast -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="wishToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto text-success">Success</strong>
+            <small>Now</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            Success adding item to wishlist.
+        </div>
+    </div>
+</div>
+
+
 <script>
     function up(max) {
         document.getElementById("myNumber").value = parseInt(document.getElementById("myNumber").value) + 1;
@@ -232,6 +263,31 @@
         if (document.getElementById("myNumber").value <= parseInt(min)) {
             document.getElementById("myNumber").value = min;
         }
+    }
+</script>
+
+<script>
+    const toastTriggerCart = document.getElementById('cartBtn')
+    const toastLiveExampleCart = document.getElementById('cartToast')
+
+    if (toastTriggerCart) {
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExampleCart)
+        toastTriggerCart.addEventListener('click', () => {
+            console.log('Clicked the cart button');
+            toastBootstrap.show()
+        })
+    }
+</script>
+
+<script>
+    const toastTriggerWish = document.getElementById('wishBtn')
+    const toastLiveExampleWish = document.getElementById('wishToast')
+
+    if (toastTriggerWish) {
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExampleWish)
+        toastTriggerWish.addEventListener('click', () => {
+            toastBootstrap.show()
+        })
     }
 </script>
 

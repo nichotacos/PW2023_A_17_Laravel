@@ -18,24 +18,29 @@ Route::get('/', function() {
         "title" => 'Home',
         "items" => [
             [
-                'name' => 'Xbox',
-                'image' => 'https://media.ldlc.com/r1600/ld/products/00/05/74/94/LD0005749420_1.jpg'
+                'name' => 'Console',
+                'image' => 'https://media.ldlc.com/r1600/ld/products/00/05/74/94/LD0005749420_1.jpg',
+                'ref' => ''
             ],
             [
-                'name' => 'Smart Watch',
-                'image' => 'https://media.ldlc.com/r1600/ld/products/00/05/74/94/LD0005749420_1.jpg'
+                'name' => 'Handphones',
+                'image' => 'https://images.samsung.com/is/image/samsung/p6pim/sg/2307/gallery/sg-galaxy-z-flip5-f731-sm-f731blgexsp-thumb-537228831?$216_216_PNG$',
+                'ref' => 'phone'
             ],
             [
-                'name' => 'Headphone',
-                'image' => 'https://media.ldlc.com/r1600/ld/products/00/05/74/94/LD0005749420_1.jpg'
+                'name' => 'Laptops',
+                'image' => asset('images/laptops/laptop3.png'),
+                'ref' => 'laptop'
             ],
             [
-                'name' => 'Keyboard',
-                'image' => 'https://media.ldlc.com/r1600/ld/products/00/05/74/94/LD0005749420_1.jpg'
+                'name' => 'TVs',
+                'image' => 'https://images.samsung.com/is/image/samsung/p6pim/sg/qa85qn900ckxxs/gallery/sg-qled-qn900c-qa85qn900ckxxs-thumb-535812922?$172_172_PNG$',
+                'ref' => 'tv'
             ],
             [
-                'name' => 'Monitor',
-                'image' => 'https://media.ldlc.com/r1600/ld/products/00/05/74/94/LD0005749420_1.jpg'
+                'name' => 'Audio',
+                'image' => 'https://www.sony.co.id/image/5d02da5df552836db894cead8a68f5f3?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF',
+                'ref' => ''
             ],
         ]
     ]);
@@ -510,6 +515,31 @@ Route::get('/shipment', function() {
                 'price' => '27499000'
             ]
         ],
+        'profile' => [
+            [
+                'name' => 'John Doe',
+                'telephone' => '081253323432',
+                'address' => 'Perumahan Citra Kedaton 1 no. 7. Jl. Sukun, Ngringin, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55283'
+            ]
+        ],
+        'promo' => [
+            [
+                'id' => '1',
+                'name' => 'Promo 1'
+            ],
+            [
+                'id' => '2',
+                'name' => 'Promo 2'
+            ],
+            [
+                'id' => '3',
+                'name' => 'Promo 3'
+            ],
+            [
+                'id' => '4',
+                'name' => 'Promo 4'
+            ],
+        ]
     ]);
 });
 

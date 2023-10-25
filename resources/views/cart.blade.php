@@ -51,7 +51,7 @@
                                 style="border-left-color: transparent;">
                                 <div class="ps-3">
                                     <p style="font-size: 24px;">{{ $item['name'] }}</p>
-                                    <p style="font-weight: bold; font-size: 18px;">IDR {{ number_format($item['price'])
+                                    <p style="font-weight: bold; font-size: 18px;">Rp {{ number_format($item['price'])
                                         }}</p>
                                     <div class="form-group">
                                         <label style="font-size: 18px; margin-bottom: 10px;">Quantity: </label>
@@ -98,17 +98,17 @@
                         <div class="card-body">
                             <h5 class="card-title py-2 mb-3" style="font-weight: bold;">Shopping Summary</h5>
                             <div class="col-md-12 d-flex justify-content-between">
-                                <p class="card-text">Total Price IDR </p>
-                                <p class="card-text">IDR ##,###,###</p>
+                                <p class="card-text">Total Price </p>
+                                <p class="card-text">Rp 45,498,000</p>
                             </div>
                             <div class="col-md-12  d-flex justify-content-between">
                                 <p class="card-text">Total Discounted</p>
-                                <p class="card-text">IDR ##,###,###</p>
+                                <p class="card-text">Rp 0</p>
                             </div>
                             <hr />
                             <div class="col-md-12 d-flex justify-content-between py-2 mb-1">
                                 <h5 class="card-title" style="font-weight: bold;">Grand Total</h5>
-                                <p class="card-text" style="font-weight: bold;">IDR ##,###,###</p>
+                                <p class="card-text" style="font-weight: bold;">Rp 45,498,000</p>
                             </div>
                             <a href="{{ url('/shipment') }}" class="btn buy-button px-4"
                                 style="background-color: #5FE137; font-weight: bold; color: white;">Buy

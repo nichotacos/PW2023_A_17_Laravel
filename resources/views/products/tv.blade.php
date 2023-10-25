@@ -81,8 +81,7 @@
                             <p class="card-text" style="font-weight: bold;">Rp {{ number_format($item['price']) }}</p>
                             <p class="card-text">Stock: <b>{{ ($item['stock'] )}}</b></p>
                             <!-- <i data-star="{{ $item['rating'] }}"></i> -->
-                            <a href="#" class="btn rounded" style="background-color: #60B347; color: white;">Plis
-                                beli</a>
+                            <a href="#" class="btn rounded" style="background-color: #60B347; color: white;">Details</a>
                         </div>
                     </div>
                 </div>

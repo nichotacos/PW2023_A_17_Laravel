@@ -8,17 +8,22 @@
                 <li class="breadcrumb-item" aria-current="page">{{ $title }}</li>
             </ol>
         </nav>
+        <h1>Profile</h1>
         <div class="card container-fluid">
             @foreach($data as $item)
             <div class="card-body">
                 <div class="row d-flex justify-content-evenly">
                     <div class="card col-lg-4 mx-1">
                         <img src="{{ $item['image'] }}" style="height: 280px; width: 280px;" />
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Choose a picture</label>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
                     </div>
                     <div class="card col-lg-7 mx-1 d-flex justify-content-center">
                         <div class="row">
                             <div class="col-lg-4 my-1" style="font-size: 20px;">
-                                <p>Nama</p>
+                                <p>Name</p>
                             </div>
                             <div class="col-lg-6 my-1" style="font-size: 20px;">
                                 <input class="form-control form-name" type="text" value=" {{ $item['name'] }}"

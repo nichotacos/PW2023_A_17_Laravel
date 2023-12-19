@@ -90,7 +90,7 @@
                                     <div class="d-flex align-items-center w-100">
                                         <i class="fa-solid fa-tags me-3"></i>
                                         Makin hemat pakai promo
-                                        <i class="fa-solid fa-angle-right justify-content-end"></i>
+                                        <i class="fa-solid fa-angle-right justify-content-end mx-3"></i>
                                     </div>
                                 </a>
                             </div>

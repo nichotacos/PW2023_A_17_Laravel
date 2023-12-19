@@ -1,26 +1,38 @@
 @extends('dashboard') @section('content')
 
 <div class="content">
+    @if (session('message'))
+    <div class="alert alert-success">
+        {{session('message')}}
+    </div>
+    @endif
     <div class="container d-flex justify-content-center" style="margin-top: 87px;">
         <div class="container d-flex justify-content-center"
             style="border: solid; border-color: #5EE137; border-radius: 7%; margin-top: 50px; margin-left: 320px; margin-right: 320px; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">
             <div class="container py-5 px-5">
-                <form class=" row g-3 needs-validation" style="padding-left: 10px; padding-right: 10px;" novalidate>
+                <form class=" row g-3 needs-validation" style="padding-left: 10px; padding-right: 10px;" action="{{ route('actionRegister') }}" method="POST" novalidate>
+                    @csrf
                     <p style="font-size: 32px; font-weight: bold;">Register New Account</p>
                     <hr>
                     <div class="col-md-12">
                         <label for="validationCustom01" class="form-label">First name</label>
-                        <input type="text" class="form-control" id="validationCustom01" value="" required>
+                        <input type="text" name="first_name" class="form-control" id="validationCustom01" value="" required>
+                        <div class="invalid-feedback">
+                            Please input first name.
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <label for="validationCustom02" class="form-label">Last name</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="" required>
+                        <input type="text" name="last_name" class="form-control" id="validationCustom02" value="" required>
+                        <div class="invalid-feedback">
+                            Please input last name.
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <label for="validationCustomUsername" class="form-label">Email</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text" id="inputGroupPrepend">@</span>
-                            <input type="email" class="form-control" id="validationCustomUsername"
+                            <input type="email" name="email" class="form-control" id="validationCustomUsername"
                                 aria-describedby="inputGroupPrepend" required>
                             <div class="invalid-feedback">
                                 Please input an email.
@@ -29,14 +41,14 @@
                     </div>
                     <div class="col-md-12">
                         <label for="validationCustom05" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="validationCustom05" required>
+                        <input type="text" name="username" class="form-control" id="validationCustom05" value="" required>
                         <div class="invalid-feedback">
                             Please provide a valid username.
                         </div>
                     </div>
                     <div class="col-md-12">
                         <label for="validationCustom03" class="form-label">Telephone</label>
-                        <input type="tel" class="form-control" id="validationCustom03" required>
+                        <input type="tel" name="telephone" class="form-control" id="validationCustom03" required>
                         <div class="invalid-feedback">
                             Please provide a valid phone number.
                         </div>
@@ -46,13 +58,6 @@
                         <input type="password" class="form-control" id="validationCustom03" required>
                         <div class="invalid-feedback">
                             Please select a valid Password.
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="validationCustom04" class="form-label">Password Confirmation</label>
-                        <input type="password" class="form-control" id="validationCustom03" required>
-                        <div class="invalid-feedback">
-                            Password don't match.
                         </div>
                     </div>
                     <div class="col-12">

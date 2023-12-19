@@ -14,7 +14,7 @@
             <div class="card-body">
                 <div class="row d-flex justify-content-evenly">
                     <div class="card col-lg-4 mx-1">
-                        <img src="{{ $item['image'] }}" style="height: 280px; width: 280px;" />
+                        <img src="{{ asset('images/default.avif') }}" style="height: 280px; width: 280px;" />
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Choose a picture</label>
                             <input class="form-control" type="file" id="formFile">

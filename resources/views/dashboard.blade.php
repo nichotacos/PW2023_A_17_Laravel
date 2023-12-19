@@ -257,7 +257,7 @@
                                 <input type="text" class="form-control" id="validationCustomUsername"
                                     aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
-                                    Please choose a username.
+                                    Please input a valid username.
                                 </div>
                             </div>
                         </div>
@@ -265,7 +265,7 @@
                             <label for="validationCustom04" class="form-label password">Password</label>
                             <input type="password" class="form-control" id="validationCustom03" required>
                             <div class="invalid-feedback">
-                                Please select a valid Password.
+                                Please input a valid password.
                             </div>
                         </div>
                         <div class="col-md-12 d-flex justify-content-center">

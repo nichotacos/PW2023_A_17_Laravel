@@ -1,7 +1,7 @@
 @extends('admin.admin-dashboard') @section('content')
 <div class="content">
     <div class="container-fluid" id="main2">
-        <h1 class="mx-2 fw-bold mb-3">Orders</h1>
+        <h1 class="mx-2 fw-bold mb-3">Users</h1>
         <div class="row mx-2">
             <p>Find Users</p>
             <div class="col-lg-6">

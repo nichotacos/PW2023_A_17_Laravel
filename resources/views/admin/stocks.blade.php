@@ -1,8 +1,7 @@
 @extends('admin.admin-dashboard') @section('content')
 
 <!-- Modal -->
-<div class="modal fade" id="addItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="addItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -40,8 +39,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="editItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="editItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -79,8 +77,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="deleteItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="deleteItem" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -106,10 +103,8 @@
             <p>Find Items</p>
             <div class="col-lg-6">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="" aria-label="Recipient's username"
-                        aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary btn-primary text-center" type="button"
-                        id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" class="form-control" placeholder="" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary btn-primary text-center" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
             <div class="col-lg-6 text-end">
@@ -134,23 +129,21 @@
                         <th>Action</th>
                     </tr>
                     <tr>
-                        <?php $i=0; ?>
+                        <?php $i = 0; ?>
                         @foreach($products as $items)
                         <?php $i++; ?>
                     <tr>
                         <td>{{ $i }}</td>
                         <td><img src="{{ $items['image'] }}" style="height: 100px; width: 100px;"></td>
                         <td>{{ $items['name'] }}</td>
-                        <td>Rp {{ number_format($items['price']) }}</td>
+                        <td>IDR {{ number_format($items['price']) }}</td>
                         <td>{{ $items['stock'] }}</td>
                         <td>{{ $items['rating'] }}</td>
-                        <td>{{ $items['review'] }}</td>
+                        <td>{{ $items['reviews'] }}</td>
                         <td>
                             <div>
-                                <button class="w-50 my-2 btn btn-warning" data-bs-toggle="modal"
-                                    data-bs-target="#editItem">Update</button>
-                                <button class="w-50 my-2 btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#deleteItem">Delete</button>
+                                <button class="w-50 my-2 btn btn-warning" data-bs-toggle="modal" data-bs-target="#editItem">Update</button>
+                                <button class="w-50 my-2 btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteItem">Delete</button>
                             </div>
                         </td>
                     </tr>

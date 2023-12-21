@@ -12,18 +12,19 @@ use Illuminate\Support\Facades\Session;
 
 class RegisterController extends Controller
 {
-    public function register(){
+    public function register()
+    {
         return view('register');
     }
 
-    public function actionRegister(Request $request){
+    public function actionRegister(Request $request)
+    {
 
         $str = Str::random(100);
         $user = User::create([
             'email' => $request->email,
             'username' => $request->username,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
+            'full_name' => $request->full_name,
             'telephone' => $request->telephone,
             'password' => Hash::make($request->password),
             'verify_key' => $str,
@@ -39,17 +40,18 @@ class RegisterController extends Controller
 
         Mail::to($request->email)->send(new MailSend($details));
 
-        Session::flash('message','Link Verifikasi Telah Dikirim Ke Email Anda. Silahkan Cek Email Anda Untuk Mengaktifkan AKun');
+        Session::flash('message', 'Link Verifikasi Telah Dikirim Ke Email Anda. Silahkan Cek Email Anda Untuk Mengaktifkan AKun');
         return redirect('register');
     }
 
-    public function verify($verify_key){
-        
+    public function verify($verify_key)
+    {
+
         $keyCheck = User::select('verify_key')
             ->where('verify_key', $verify_key)
             ->exists();
 
-        if($keyCheck){
+        if ($keyCheck) {
             $user = User::where('verify_key', $verify_key)
                 ->update([
                     'active' => 1,

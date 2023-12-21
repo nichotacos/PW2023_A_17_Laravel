@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Login</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}" />
     <!-- Google Font: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -160,77 +160,38 @@
 </head>
 
 <body>
-    <div class="content mb-5">
+    <div class="content">
         <div class="container d-flex justify-content-center" style="margin-top: 87px;">
             <div class="container d-flex justify-content-center" style="border: solid; border-color: #5EE137; border-radius: 7%; margin-top: 50px; margin-left: 320px; margin-right: 320px; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);">
                 <div class="container py-5 px-5">
-                    <form class=" row g-3 needs-validation" style="padding-left: 10px; padding-right: 10px;" action="{{ route('actionRegister') }}" method="POST" novalidate>
+                    <form class=" row g-3 needs-validation" style="padding-left: 10px; padding-right: 10px;" action="{{ route('actionLogin') }}" method="POST" novalidate>
                         @csrf
-                        <p style="font-size: 32px; font-weight: bold;">Register New Account</p>
+                        <p style="font-size: 32px; font-weight: bold;">Login</p>
                         <hr>
-                        <div class="col-md-12">
-                            <label for="validationCustom01" class="form-label">Full name</label>
-                            <input type="text" name="full_name" class="form-control" id="validationCustom01" value="" required>
-                            <div class="invalid-feedback">
-                                Please input first name.
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="validationCustomUsername" class="form-label">Email</label>
-                            <div class="input-group has-validation">
-                                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                <input type="email" name="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-                                <div class="invalid-feedback">
-                                    Please input an email.
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-md-12">
                             <label for="validationCustom05" class="form-label">Username</label>
                             <input type="text" name="username" class="form-control" id="validationCustom05" value="" required>
                             <div class="invalid-feedback">
-                                Please provide a valid username.
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="validationCustom03" class="form-label">Telephone</label>
-                            <input type="tel" name="telephone" class="form-control" id="validationCustom03" required>
-                            <div class="invalid-feedback">
-                                Please provide a valid phone number.
+                                Please input a valid username.
                             </div>
                         </div>
                         <div class="col-md-12">
                             <label for="validationCustom04" class="form-label">Password</label>
                             <input type="password" name="password" class="form-control" id="validationCustom03" required>
                             <div class="invalid-feedback">
-                                Please select a valid Password.
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                <label class="form-check-label" for="invalidCheck">
-                                    Agree to terms and conditions
-                                </label>
-                                <div class="invalid-feedback">
-                                    You must agree before submitting.
-                                </div>
+                                Please input a valid Password.
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="col-12">
-                                <button class="submit-button" type="submit" style="background-color: #5EE137; border: none; padding: 5px; padding-left: 15px; padding-right: 15px;">Sign
-                                    Up</button>
-                                <p class="text-start mt-3">Sudah punya akun? <a href="{{ route('login') }}">Login disini</a></p>
-                                <!-- onclick="if(formIsValid() ($('#triggerModal').click())); -->
-                                <!-- <button type="submit" id="triggerModal" hidden value="Submit" class="btn btn-info btn-lg"
-                                data-toggle="modal" data-target="#staticBackdrop2"></button> -->
-                                @if (session('message'))
-                                <div class="alert alert-success">
-                                    {{session('message')}}
-                                </div>
-                                @endif
+                                <button class="submit-button" type="submit" style="background-color: #5EE137; border: none; padding: 5px; padding-left: 15px; padding-right: 15px;">Login</button>
+                                <p class="text-start mt-3">Belum punya akun? <a href="{{ url('register') }}">Register disini</a></p>
                             </div>
+                            @if(session('error'))
+                            <div class="alert alert-danger">
+                                <b>Oops!</b> {{ session('error') }}
+                            </div>
+                            @endif
                         </div>
                     </form>
                 </div>
@@ -238,28 +199,28 @@
 
         </div>
     </div>
-
-    <script>
-        (() => {
-            'use strict'
-
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            const forms = document.querySelectorAll('.needs-validation')
-
-            // Loop over them and prevent submission
-            Array.from(forms).forEach(form => {
-                form.addEventListener('submit', event => {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-                    $("#staticBackdrop2").modal('show');
-                }, false)
-            })
-        })()
-    </script>
 </body>
 
 </html>
+
+<script>
+    (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+                $("#staticBackdrop2").modal('show');
+            }, false)
+        })
+    })()
+</script>

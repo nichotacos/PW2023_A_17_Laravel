@@ -19,7 +19,8 @@
     <!-- Sweet Alert -->
     <link href="
         https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.min.css
-        " rel="stylesheet">
+        "
+        rel="stylesheet">
 
     <!-- Import Local CSS -->
     <link rel="stylesheeet" type="text/css" href="../css/star.css" />
@@ -179,36 +180,34 @@
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav flex-grow-1 justify-content-evenly">
-                        <li class="nav-item" style="margin-right: 40px;"><a class="nav-link item" href="{{ url('/') }}"
-                                style="color: #5FE137; font-size: 22px;">
+                        <li class="nav-item" style="margin-right: 40px;"><a class="nav-link item"
+                                href="{{ url('/') }}" style="color: #5FE137; font-size: 22px;">
                                 <img src="{{ asset('images/logo.png') }}" id="logo"> Kedai </a></li>
-                        <li class="nav-item"><a class="nav-link item {{ ($title === 'Home') ? 'active' : '' }}"
+                        <li class="nav-item"><a class="nav-link item {{ $title === 'Home' ? 'active' : '' }}"
                                 href="{{ url('/') }}">Home</a></li>
                         <li class="nav-item dropdown a">
                             <button
-                                class="nav-link {{ ($title === 'Smartphones' || $title === 'Laptops' || $title === 'TVs') ? 'active' : '' }} btn btn-white dropdown-toggle"
+                                class="nav-link {{ $title === 'Smartphones' || $title === 'Laptops' || $title === 'TVs' ? 'active' : '' }} btn btn-white dropdown-toggle"
                                 aria-expanded="false">
                                 Product
                             </button>
                             <ul class="dropdown-menu a dropdown-menu-light" style="border: none; min-width: 400px;">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <li><a class="dropdown-item" href="{{ url('/laptop') }}">Laptops</a></li>
-                                        <li><a class="dropdown-item" href="{{ url('/phone') }}">Smartphones</a></li>
-                                        <li><a class="dropdown-item" href="{{ url('/tv') }}">TVs</a></li>
+                                        <li><a class="dropdown-item" href="{{ url('products/2') }}">Laptops</a></li>
+                                        <li><a class="dropdown-item" href="{{ url('products/1') }}">Smartphones</a></li>
+                                        <li><a class="dropdown-item" href="{{ url('products/3') }}">TVs</a></li>
                                     </div>
                                     <div class="col-sm-6">
-                                        <li><a class="dropdown-item" href="{{ url('/laptop') }}">Console</a></li>
-                                        <li><a class="dropdown-item" href="{{ url('/phone') }}">Audio</a></li>
-                                        <li><a class="dropdown-item" href="{{ url('/tv') }}">Gaming Gear</a></li>
+                                        <li><a class="dropdown-item" href="{{ url('/') }}">Console</a></li>
+                                        <li><a class="dropdown-item" href="{{ url('/') }}">Audio</a></li>
+                                        <li><a class="dropdown-item" href="{{ url('/') }}">Gaming Gear</a></li>
                                     </div>
                                 </div>
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link item" href="{{ url('/product') }}">Features</a></li>
-                        <li class="nav-item"><a class="nav-link item dropdown" href="{{ url('/') }}">Enterprise</a></li>
-                        <li class="nav-item"><a class="nav-link item" href="{{ url('/') }}">Support</a></li>
-                        <li class="nav-item"><a class="nav-link item" href="{{ url('/') }}">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link item" href="{{ url('/') }}">About</a></li>
                         <li class="nav-item" style="margin-left: 40px;"><a class="nav-link" href="#">
                                 <button type="button" class="btn btn-white">
                                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -221,15 +220,13 @@
                             </button>
                             <ul class="dropdown-menu a dropdown-menu-light"
                                 style="border: none; min-width: 200px; margin-top: 140px;">
-                                <li><a class="dropdown-item" href="{{ url('/cart') }}">Cart</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/cart/' . auth()->user()->id) }}">Cart</a>
+                                </li>
                                 <li><a class="dropdown-item" href="{{ url('/wishlist') }}">Wishlist</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#">
-                                <button type="button" class="btn btn-white login-btn" data-bs-toggle="modal"
-                                    data-bs-target="#staticBackdrop">
-                                    <i class="fa-regular fa-user"></i>
-                                </button>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('profile') }}">
+                                <i class="fa-regular fa-user"></i>
                             </a></li>
                     </ul>
                 </div>
@@ -245,51 +242,44 @@
         <div class="modal-dialog modal-dialog-centered" style="width: 400px;">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Login</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Update Data</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body mx-4">
-                    <form class="row g-3 needs-validation" novalidate>
+                    <form class="row g-3 needs-validation" action="{{ route('user.update') }}" novalidate
+                        method="POST" enctype="multipart/form-data"> @csrf @method('PUT')
                         <div class="col-md-12">
-                            <label for="validationCustomUsername" class="form-label username">Username</label>
+                            <label for="validationCustomUsername" class="form-label username">Name</label>
                             <div class="input-group has-validation">
-                                <input type="text" class="form-control" id="validationCustomUsername"
-                                    aria-describedby="inputGroupPrepend" required>
+                                <input type="text" name="full_name" class="form-control"
+                                    id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
-                                    Please input a valid username.
+                                    Please input a valid name.
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <label for="validationCustom04" class="form-label password">Password</label>
-                            <input type="password" class="form-control" id="validationCustom03" required>
+                            <label for="validationCustom04" class="form-label password">Telephone</label>
+                            <input type="text" name="telephone" class="form-control" id="validationCustom03"
+                                required>
                             <div class="invalid-feedback">
-                                Please input a valid password.
+                                Please input a valid telephone.
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="validationCustom04" class="form-label password">Address</label>
+                            <input type="text" name="address" class="form-control" id="validationCustom03"
+                                required>
+                            <div class="invalid-feedback">
+                                Please input a valid address.
                             </div>
                         </div>
                         <div class="col-md-12 d-flex justify-content-center">
                             <button type="submit" class="btn px-5 py-2" id="submit-button"
-                                style="background-color: #5EE137; color: white; font-weight: bold;">Login</button>
+                                style="background-color: #5EE137; color: white; font-weight: bold;">Save</button>
                         </div>
                     </form>
-                    <div class="vstack gap-3" style="padding-top: 15px;">
-
-                        <div class="container d-flex justify-content-center">
-                            <p>Or Sign Up With</p>
-                        </div>
-                        <div class="container d-flex justify-content-evenly" style="width: 200px;">
-                            <i class="fa-brands fa-facebook"></i>
-                            <i class="fa-brands fa-google"></i>
-                            <i class="fa-brands fa-instagram"></i>
-                        </div>
-                        <div>
-                            <div class="container d-flex justify-content-center">
-                                <a class="sign-up" href="{{ url('/register')}}">Sign Up</a>
-                                <button type="button" class="btn"></button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -339,28 +329,22 @@
     <!-- Main Footer -->
     <footer class="container py-5" style="margin-top: 80px">
         <div class="row">
-            <div class="col-12 col-md">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img"
-                    viewBox="0 0 24 24">
+            <div class="col-12 col-md-6">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                    stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="d-block mb-2" role="img" viewBox="0 0 24 24">
                     <title>Product</title>
                     <circle cx="12" cy="12" r="10"></circle>
                     <path
                         d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94">
                     </path>
                 </svg>
+                <small class="d-block mb-3 text-body-secondary">At Kedai, we're your go-to hub for the latest in tech.
+                    From cutting-edge smartphones to sleek accessories, we curate the finest collection of gadgets from
+                    top-notch brands. Shopping at Kedai isn't just about products; it's an experience. We're dedicated
+                    to providing top-notch support to ensure you get the tech that suits your needs. Welcome to Kedai,
+                    where the latest gadgets await you!</small>
                 <small class="d-block mb-3 text-body-secondary">© 2017–2023</small>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Features</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
-                    <li><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>
-                    <li><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>
-                    <li><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>
-                    <li><a class="link-secondary text-decoration-none" href="#">Another one</a></li>
-                    <li><a class="link-secondary text-decoration-none" href="#">Last time</a></li>
-                </ul>
             </div>
             <div class="col-6 col-md">
                 <h5>Resources</h5>
@@ -394,14 +378,14 @@
 
     <!-- Bootstrap Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+    </script>
     <script src="
-        https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js
-        "></script>
+                            https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js
+                            "></script>
 
     <!-- Hide Nav Bar-->
     <script>
@@ -431,7 +415,7 @@
         })
     </script>
     <!-- <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#loginForm').formValidation({
                 framework: 'bootstrap',
                 excluded: ':disabled',

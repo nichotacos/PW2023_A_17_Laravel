@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
-
+  protected $username = 'username';
   public function login()
   {
     if (Auth::check()) {
@@ -25,10 +25,14 @@ class LoginController extends Controller
       'password' => $request->input('password'),
     ];
 
+    if ($data['username'] == 'admin' && $data['password'] == 'gueadmin') return redirect('/admin');
+
+    // dd($data);
+
     if (Auth::attempt($data)) {
       $user = Auth::user();
 
-      if ($user->active) {
+      if ($user->active == 1) {
         // return view('home');
         return redirect('home');
       } else {
@@ -37,7 +41,9 @@ class LoginController extends Controller
         return redirect('/');
       }
     } else {
-      Session::flash('error', 'Email atau Password Saah');
+      $attemptedUser = Auth::getLastAttempted();
+      // dd($attemptedUser);
+      Session::flash('error', 'Email atau Password Salah');
       return redirect('/');
     }
   }

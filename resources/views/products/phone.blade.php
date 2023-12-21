@@ -25,8 +25,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('images/phones/carousel2.png') }}" class="d-block w-100 object-fit-fill"
-                        alt="test image">
+                    <img src="{{ asset('images/phones/carousel2.png') }}" class="d-block w-100 object-fit-fill" alt="test image">
                     <div class="carousel-ban-text-adj">
                         <div>
                             <div>
@@ -48,8 +47,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('images/phones/carousel4.png') }}" class="d-block w-100 object-fit-fill"
-                        alt="test image">
+                    <img src="{{ asset('images/phones/carousel4.png') }}" class="d-block w-100 object-fit-fill" alt="test image">
                     <div class="carousel-ban-text-adj">
                         <div>
                             <p style="font-size: 50px; font-weight: bold; color: black;">Galaxy Z Fold 5</p>
@@ -61,13 +59,11 @@
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-                data-bs-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-                data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
@@ -78,22 +74,19 @@
             <div class="row d-flex justify-content-start">
                 @foreach($products as $item)
                 <div class="col-md-3 d-flex justify-content-center py-3">
-                    <a class="to-details" href="{{ url('/details') }}">
+                    <a class="to-details" href="{{ url('/products/details/' . $item['id']) }}">
                         <div class="card items" style="width: 19rem;">
-                            <img src="{{ $item['image'] }}" class="card-img-top item-img" alt="{{ $item['name'] }}"
-                                style="height: 286px;">
+                            <img src="{{ $item['image'] }}" class="card-img-top item-img" alt="{{ $item['name'] }}" style="height: 286px;">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $item['name'] }}</h5>
                                 <p class="card-text" style="font-weight: bold;">Rp {{ number_format($item['price']) }}
                                 </p>
-                                <a href="{{ url('/details') }}" class="btn rounded"
-                                    style="background-color: #60B347; color: white;">Details</a>
+                                <p class="card-text mb-3">Rating: <b>{{ $item['rating'] }} ({{ $item['reviews'] }})</b></p>
+                                <a href="{{ url('/products/details/' . $item['id']) }}" class="btn rounded" style="background-color: #60B347; color: white;">Details</a>
                             </div>
                         </div>
                     </a>
-
                 </div>
-
                 @endforeach
             </div>
         </div>

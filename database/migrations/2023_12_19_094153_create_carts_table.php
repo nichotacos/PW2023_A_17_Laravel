@@ -17,6 +17,10 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained('products', 'id')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('quantity');
             $table->string('status');
+            $table->double('total_price');
+            $table->string('tracking_id');
+            $table->date('ship_date')->nullable();
+            $table->date('arrival_date')->nullable();
             $table->timestamps();
         });
     }

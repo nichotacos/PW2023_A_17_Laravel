@@ -11,14 +11,13 @@
                                 <i class="fa-solid fa-boxes-stacked fa-5x"></i>
                             </div>
                             <div class="col-md-7" style="text-align: right;">
-                                <p class="notif-number" style="margin: 0px;">26</p>
+                                <p class="notif-number" style="margin: 0px;">{{ $productsQty }}</p>
                                 <p class="notif-info">Stocks in Warehouse!</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container py-2"
-                    style="background-color: rgb(238, 238, 238); border-radius: 0px 0px 10px 10px;">
+                <div class="container py-2" style="background-color: rgb(238, 238, 238); border-radius: 0px 0px 10px 10px;">
                     <a class="link" href="{{ url('/stocks') }}">View Details<i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
@@ -30,15 +29,14 @@
                                 <i class="fa fa-tasks fa-5x"></i>
                             </div>
                             <div class="col-md-7" style="text-align: right;">
-                                <p class="notif-number" style="margin: 0px;">12</p>
-                                <p class="notif-info">New Tasks!</p>
+                                <p class="notif-number" style="margin: 0px;">{{ $usersQty }}</p>
+                                <p class="notif-info">Users Data!</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container py-2"
-                    style="background-color: rgb(238, 238, 238); border-radius: 0px 0px 10px 10px;">
-                    <a class="link" href="{{ url('/tasks') }}">View Details<i class="fa fa-arrow-circle-right"></i></a>
+                <div class="container py-2" style="background-color: rgb(238, 238, 238); border-radius: 0px 0px 10px 10px;">
+                    <a class="link" href="{{ url('/users') }}">View Details<i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -49,14 +47,13 @@
                                 <i class="fa fa-shopping-cart fa-5x"></i>
                             </div>
                             <div class="col-md-7" style="text-align: right;">
-                                <p class="notif-number" style="margin: 0px;">41</p>
+                                <p class="notif-number" style="margin: 0px;">{{ $cartsQty }}</p>
                                 <p class="notif-info">New Orders!</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="container py-2"
-                    style="background-color: rgb(238, 238, 238); border-radius: 0px 0px 10px 10px;">
+                <div class="container py-2" style="background-color: rgb(238, 238, 238); border-radius: 0px 0px 10px 10px;">
                     <a class="link" href="{{ url('/orders') }}">View Details<i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
@@ -74,10 +71,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="container py-2"
-                    style="background-color: rgb(238, 238, 238); border-radius: 0px 0px 10px 10px;">
-                    <a class="link" href="{{ url('/support') }}">View Details<i
-                            class="fa fa-arrow-circle-right"></i></a>
+                <div class="container py-2" style="background-color: rgb(238, 238, 238); border-radius: 0px 0px 10px 10px;">
+                    <a class="link" href="{{ url('/support') }}">View Details<i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -112,9 +107,16 @@
             }]
         },
         options: {
-            legend: { display: false },
+            legend: {
+                display: false
+            },
             scales: {
-                yAxes: [{ ticks: { min: 6, max: 16 } }],
+                yAxes: [{
+                    ticks: {
+                        min: 6,
+                        max: 16
+                    }
+                }],
             }
         }
     });

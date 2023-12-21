@@ -15,14 +15,19 @@ class Cart extends Model
         'product_id',
         'total_price',
         'quantity',
-        'status'
+        'status',
+        'tracking_id',
+        'ship_date',
+        'arrival_date'
     ];
 
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function product() {
+    public function product()
+    {
         return $this->belongsTo(Product::class, 'product_id');
     }
 }

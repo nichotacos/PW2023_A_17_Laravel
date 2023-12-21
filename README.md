@@ -4,8 +4,8 @@
 
 ### Anggota Kelompok:
 1. Nicholas Yang (210711153) - Full Stack Dev
-2. Klasik Solafide Kabor Mambri Taidi (210711185) - Sentinel AKA Support (dikit doang)
-3. Edwin Pratama Hutahaean (210711285) - Sentinel but missing (nanya tubes h-2)
+2. Klasik Solafide Kabor Mambri Taidi (210711185) - Sentinel AKA Support 
+3. Edwin Pratama Hutahaean (210711285) - Sentinel AKA Support
 
 ### Username & Password Login
 - User:

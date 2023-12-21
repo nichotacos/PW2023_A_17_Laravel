@@ -20,7 +20,7 @@ class UserController extends Controller
             'address' => $request->address
         ]);
 
-        return view('profile', ['title' => "Profile", 'carts' => $carts]);
+        return redirect()->back();
     }
 
     public function updateImage(Request $request)

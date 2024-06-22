@@ -7,6 +7,9 @@
 2. Klasik Solafide Kabor Mambri Taidi (210711185) - Support 
 3. Edwin Pratama Hutahaean (210711285) - Support
 
+### Deskripsi
+Dikerjakan untuk memenuhi tugas akhir dari mata kuliah Pemrograman Web. Menggunakan laravel blade template dan mysql.
+
 ### Username & Password Login
 - User:
     - Username: **diteduh**
